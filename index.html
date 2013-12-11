@@ -4,12 +4,12 @@
 
 <meta charset="utf-8">
 <title>Merry Christmas</title>
-<meta name="description" content="Ho ho ho">
+<meta name="description" content="HO HO HO">
 <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" media="screen" href="files/main.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Slab:700|Asap:400italic">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Slab:700">
 
 </head>
 <body class="body">
@@ -17,7 +17,7 @@
 	<!-- Intro -->
 	<header class="header">
 		<h1>HO HO HO</h1>
-		<div class="play"><p></p></div>
+		<div class="play"><p></p><span></span></div>
 		<div class="mask"></div>
 	</header>
 
@@ -42,6 +42,7 @@
 				<ul class="light green"><li></li><li></li><li></li></ul>
 				<ul class="light red"><li></li><li></li><li></li></ul>
 				<ul class="light yellow"><li></li><li></li><li></li></ul>
+				<b class="topstar">&#10038;</b>
 			</p>
 			<em class="base"></em>
 		</div>
@@ -69,6 +70,7 @@
 	<script src="files/prefixfree.min.js"></script>
 	<script>
 		$(document).ready(function() {
+			
 			/* random trees */
 			$('.mountains li').find('i').each(function() {
 				var that = $(this);
@@ -87,14 +89,15 @@
 			$('.play').click(function() {
 				audio.play();
 				animation.css('display','block');
-				$('header .play, header .mask').fadeOut(1);
+				$('.header .play, .header .mask').fadeOut(1);
 				$('h1').fadeOut(800);
 			});
 		});
 
 		$(window).load(function() {
 			var play = $('.play');
-			play.find('p').fadeIn(900);
+			play.find('p').fadeIn(800);
+			play.find('span').fadeOut(700);
 		});
 	</script>
 

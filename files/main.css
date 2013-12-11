@@ -2,16 +2,15 @@
 
 /* http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
 *{box-sizing:border-box;backface-visibility:hidden;animation-fill-mode:both;}
+html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; font-smoothing:antialiased !important; text-shadow:1px 1px 1px rgba(0,0,0,0.004);}
 
 
 /* HTML */
-html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; font-smoothing:antialiased !important; text-shadow:1px 1px 1px rgba(0,0,0,0.004);}
 .body {background:#181d28; z-index:0;}
-
 .article {display:none;}
-.header {display:block;}
-
+.header .mask, .header .world {animation:none;}
 
 /* Text */
 .header h1, .article h2, .article h3 {z-index:999999; text-align:center; width:100%; position:absolute; top:50%; font-family:'Josefin Slab'; font-size:100px; color:#e41e3f; text-transform:uppercase;}
@@ -24,9 +23,13 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 
 
 /* Load/Play */
-.play {width:100px; height:100px; position:absolute; top:50%; left:50%; margin:-50px 0 0 -50px; z-index:999999; cursor:pointer;}
-.play p {width:0; height:0; position:absolute; top:50%; left:50%; margin:-15px 0 0 -8px; border-left:25px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; display:none; transition:.3s;}
+.play {width:100px; height:100px; position:absolute; top:50%; left:50%; margin:-50px 0 0 -50px; z-index:999999; cursor:pointer; transition:all .4s;}
+.play p {width:0; height:0; position:absolute; top:50%; left:50%; margin:-15px 0 0 -8px; border-left:25px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; display:none;}
 .play:hover p {border-left-color:#ffa200;}
+.play span {width:38px; height:38px; position:absolute; top:50%; left:50%; margin:-19px 0 0 -19px; border:2px solid #fff; border-radius:100px; border-top:2px solid transparent; border-bottom:2px solid transparent; animation:load 12s linear infinite;}
+
+@keyframes load
+{0%{transform:rotate(0) origin;} 100%{transform:rotate(360deg);}}
 
 
 /* Mask */
@@ -47,10 +50,10 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 
 
 /* World */
-.world {width:1000px; height:1000px; position:absolute; top:50%; left:50%; margin:205px 0 0 -500px; z-index:10; animation:uptwo 1.4s 1.8s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards, rotate 1.2s 6s forwards;}
+.world {width:1000px; height:1000px; position:absolute; top:50%; left:50%; margin:212px 0 0 -500px; z-index:10; animation:uptwo 1.4s 1.8s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards, rotate 1.2s 6s forwards;}
 
 @keyframes rotate {to{transform:rotate(90deg);}}
-@keyframes uptwo {from{margin-top:800px} to{margin-top:205px;}}
+@keyframes uptwo {from{margin-top:800px} to{margin-top:212px;}}
 
 
 /* Mountains */
@@ -125,3 +128,8 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 	70% {transform: scale(.9);}
 	100% {transform: scale(1);}
 }
+
+.topstar {font-size:50px; color:#ffa200; position:absolute; top:50%; left:0; margin:-22px 0 0 -290px; z-index:99; transform:rotate(30deg); animation:enter 3s 9s backwards;}
+
+@keyframes enter
+{0%{transform:rotate(30deg) origin; opacity:0;} 100%{transform:rotate(390deg);}}
