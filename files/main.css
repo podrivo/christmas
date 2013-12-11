@@ -4,182 +4,70 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 *{box-sizing:border-box;backface-visibility:hidden;animation-fill-mode:both;}
 
+
 /* HTML */
 html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; font-smoothing:antialiased !important; text-shadow:1px 1px 1px rgba(0,0,0,0.004);}
-body {background:#181d28; z-index:0;}
+.body {background:#181d28; z-index:0;}
 
-article {display:none;}
-header {display:block;}
+.article {display:none;}
+.header {display:block;}
 
-header .mask, header .world {animation:none;}
 
-h1 {z-index:999999; text-align:center; width:100%; position:absolute; top:50%; margin-top:-200px; font-family:'Josefin Slab'; font-size:100px; color:#e41e3f;}
+/* Text */
+.header h1, .article h2, .article h3 {z-index:999999; text-align:center; width:100%; position:absolute; top:50%; font-family:'Josefin Slab'; font-size:100px; color:#e41e3f; text-transform:uppercase;}
+.header h1 {margin-top:-200px;}
+.article h2, .article h3 {animation:show 1s backwards;}
+.article h2 {margin-top:-230px; animation-delay:11s;}
+.article h3 {margin-top:130px; animation-delay:11.3s;}
+
+@keyframes show {from{opacity:0;}}
+
 
 /* Load/Play */
 .play {width:100px; height:100px; position:absolute; top:50%; left:50%; margin:-50px 0 0 -50px; z-index:999999; cursor:pointer;}
 .play p {width:0; height:0; position:absolute; top:50%; left:50%; margin:-15px 0 0 -8px; border-left:25px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; display:none; transition:.3s;}
 .play:hover p {border-left-color:#ffa200;}
 
+
 /* Mask */
-.mask {
-	width:3400px;
-	height:3400px;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin:-1700px 0 0 -1700px;
-	border:1650px solid #fff;
-	border-radius:2000px;
-	overflow:hidden;
-	display:block;
-	box-sizing:border-box;
-	animation:maskzero 2.2s linear forwards, maskone 1s 2.2s forwards, masktwo 1s 9s forwards;
-	z-index:99;
+.mask {width:3400px; height:3400px; position:absolute; left:50%; top:50%; margin:-1700px 0 0 -1700px; border:1650px solid #fff; border-radius:2000px; overflow:hidden; display:block; box-sizing:border-box; animation:maskzero 2.2s linear forwards, maskone 1s 2.2s forwards, masktwo 1s 9s forwards; z-index:99;
 }
 
-@keyframes maskzero
-{from{border-width:1650px;}to{border-width:1630px;}}
-
-@keyframes maskone
-{from{border-width:1630px;}to{border-width:200px;}}
-
-@keyframes masktwo
-{from{border-width:200px;}to{border-width:1590px;}}
+@keyframes maskzero {from{border-width:1650px;} to{border-width:1630px;}}
+@keyframes maskone {from{border-width:1630px;} to{border-width:200px;}}
+@keyframes masktwo {from{border-width:200px;} to{border-width:1590px;}}
 
 
 /* Tree */
-.tree {
-	display:block;
-	height:0;
-	width:0;
-	border-style: solid;
-	border-width: 0 30px 100px 30px;
-	border-color: transparent transparent #526d44 transparent;
-	position:absolute;
-	top:0;
-	left:50%;
-	left:0;
-	margin:-273px 0 0 -31px;
-	margin:452px 0 0 -253px;
-	z-index:11;
-	transform:rotate(-90deg);
-}
+.tree {display:block; height:0; width:0; border-style: solid; border-width: 0 30px 100px 30px; border-color: transparent transparent #526d44 transparent; position:absolute; top:0; left:50%; left:0; margin:-273px 0 0 -31px; margin:452px 0 0 -253px; z-index:11; transform:rotate(-90deg);}
+.tree:after {content:''; display:block; width: 0px; height: 0px; border-style: solid; border-width: 100px 0 0 30px; border-color: transparent transparent transparent rgba(0,0,0,.1);}
+.tree:before {width:20px; height:12px; background:#804b00; content:''; position:absolute; top:100px; left:-10px;}
 
-.tree:after {
-	content:'';
-	display:block;
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: 100px 0 0 30px;
-	border-color: transparent transparent transparent rgba(0,0,0,.1);
-}
+.base {width:1000px; height:1000px; background:#fff; position:absolute; transform:rotate(45deg); border-radius:100px; z-index:10;}
 
-.tree:before {
-	width:20px;
-	height:12px;
-	background:#804b00;
-	content:'';
-	position:absolute;
-	top:100px;
-	left:-10px;
-}
 
-em {
-	width:1000px;
-	height:1000px;
-	background:#fff;
-	position:absolute;
-	transform:rotate(45deg);
-	border-radius:100px;
-	z-index:10;
-}
+/* World */
+.world {width:1000px; height:1000px; position:absolute; top:50%; left:50%; margin:205px 0 0 -500px; z-index:10; animation:uptwo 1.4s 1.8s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards, rotate 1.2s 6s forwards;}
 
-/* White mountain */
-.world {
-	width:1000px;
-	height:1000px;
-	position:absolute;
-	top:50%;
-	left:50%;
-	margin:205px 0 0 -500px;
-	z-index:10;
-	animation:uptwo 1.4s 1.8s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards, rotate 1.2s 6s forwards;
-}
+@keyframes rotate {to{transform:rotate(90deg);}}
+@keyframes uptwo {from{margin-top:800px} to{margin-top:205px;}}
 
-@keyframes rotate
-{to{transform:rotate(90deg);}}
-
-@keyframes uptwo
-{from{margin-top:800px}to{margin-top:205px;}}
 
 /* Mountains */
-.mountains li {
-	width:1000px;
-	height:1000px;
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:rotate(45deg);
-	border-radius:100px;
-	display:block;
-	animation:up 1.4s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards;
-}
+.mountains li {width:1000px; height:1000px; position:absolute; top:50%; left:50%; transform:rotate(45deg); border-radius:100px; display:block; animation:up 1.4s cubic-bezier(0.860, 0.000, 0.070, 1.000) backwards;}
 
-@keyframes up
-{from{margin-top:800px}}
+@keyframes up {from{margin-top:800px}}
 
-.mountains li:nth-child(1) {
-	background:#434a59;
-	z-index:9;
-	margin:300px 0 0 -860px;
-	animation-delay:2.4s;
-}
-.mountains li:nth-child(2) {
-	background:#434a59;
-	z-index:9;
-	margin:240px 0 0 40px;
-	animation-delay:2.5s;
-}
+.mountains li:nth-child(1) {background:#434a59; z-index:9; margin:300px 0 0 -860px; animation-delay:2.4s;}
+.mountains li:nth-child(2) {background:#434a59; z-index:9; margin:240px 0 0 40px; animation-delay:2.5s;}
+.mountains li:nth-child(3) {background:#373e4c; z-index:8; margin:180px 0 0 -120px; animation-delay:2.6s;}
+.mountains li:nth-child(4) {background:#373e4c; z-index:8; margin:20px 0 0 -960px; animation-delay:2.8s;}
+.mountains li:nth-child(5) {background:#222732; z-index:7; margin:-60px 0 0 -50px; animation-delay:3.0s;}
+.mountains li:nth-child(6) {background:#1d222c; z-index:6; margin:-200px 0 0 -600px; animation-delay:3.2s;}
 
-.mountains li:nth-child(3) {
-	background:#373e4c;
-	z-index:8;
-	margin:180px 0 0 -120px;
-	animation-delay:2.6s;
-}
-.mountains li:nth-child(4) {
-	background:#373e4c;
-	z-index:8;
-	margin:20px 0 0 -960px;
-	animation-delay:2.8s;
-}
 
-.mountains li:nth-child(5) {
-	background:#222732;
-	z-index:7;
-	margin:-60px 0 0 -50px;
-	animation-delay:3.0s;
-}
-
-.mountains li:nth-child(6) {
-	background:#1d222c;
-	z-index:6;
-	margin:-200px 0 0 -600px;
-	animation-delay:3.2s;
-}
-
-/* Mountain trees */
-.mountains li i {
-	display:block;
-	height:0;
-	width:0;
-	border-style: solid;
-	border-width: 0 15px 50px 15px;
-	position:absolute;
-	transform:rotate(-45deg);
-	animation:fall .8s cubic-bezier(0.175, 0.885, 0.320, 1.275) backwards;
-}
+/* Trees */
+.mountains li i {display:block; height:0; width:0; border-style: solid; border-width: 0 15px 50px 15px; position:absolute; transform:rotate(-45deg); animation:fall .8s cubic-bezier(0.175, 0.885, 0.320, 1.275) backwards;}
 
 .mountains li i:nth-child(1n+1) {animation-delay:4.6s}
 .mountains li i:nth-child(2n+2) {animation-delay:4.7s}
@@ -208,22 +96,14 @@ em {
 .mountains .three i {border-color: transparent transparent #262c38 transparent;}
 .mountains .four i {border-color: transparent transparent #212630 transparent;}
 
+
 /* Stars */
-.stars li {
-	background:#8990a0;
-	width:2px;
-	height:2px;
-	position:absolute;
-}
+.stars li {background:#8990a0; width:2px; height:2px; position:absolute;}
 .stars li:nth-child(2n+2) {width:1px; height:1px;}
 
+
 /* Lights */
-.light li {
-	position:absolute;
-	z-index:100;
-	border-radius: 10px;
-	animation:lights .6s backwards;
-}
+.light li {position:absolute; z-index:100; border-radius:10px; animation:lights .6s backwards;}
 .light.green li {background:#1cedbf; width:6px; height:6px;}
 .light.green li:nth-child(1) {top:528px; left:-177px; animation-delay:7.4s;}
 .light.green li:nth-child(2) {top:499px; left:-177px; animation-delay:7.5s;}
