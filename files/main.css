@@ -23,9 +23,9 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 
 
 /* Load/Play */
-.play {width:100px; height:100px; position:absolute; top:50%; left:50%; margin:-50px 0 0 -50px; z-index:999999; cursor:pointer; transition:all .4s;}
-.play p {width:0; height:0; position:absolute; top:50%; left:50%; margin:-15px 0 0 -8px; border-left:25px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; display:none;}
-.play:hover p {border-left-color:#ffa200;}
+.play {width:76px; height:76px; position:absolute; top:50%; left:50%; margin:-38px 0 0 -38px; z-index:999999; cursor:pointer; transition:all .5s; border-radius:100px;}
+.play p {width:0; height:0; position:absolute; top:50%; left:50%; margin:-11px 0 0 -6px; border-left:20px solid #fff; border-top:12px solid transparent; border-bottom:12px solid transparent; display:none;}
+.play:hover {background:rgba(255,255,255,.2);}
 .play span {width:38px; height:38px; position:absolute; top:50%; left:50%; margin:-19px 0 0 -19px; border:2px solid #fff; border-radius:100px; border-top:2px solid transparent; border-bottom:2px solid transparent; animation:load 12s linear infinite;}
 
 @keyframes load
@@ -87,6 +87,10 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 .mountains li i:nth-child(13n+3) {animation-delay:5.8s}
 .mountains li i:nth-child(14n+4) {animation-delay:5.9s}
 .mountains li i:nth-child(15n+5) {animation-delay:6.0s}
+.mountains li i:nth-child(16n+1) {animation-delay:6.1s}
+.mountains li i:nth-child(17n+2) {animation-delay:6.2s}
+.mountains li i:nth-child(18n+3) {animation-delay:6.3s}
+.mountains li i:nth-child(19n+4) {animation-delay:6.4s}
 
 @keyframes fall
 {from{margin:80px 0 0 80px; opacity:0;}to{margin:0;}}
@@ -129,7 +133,7 @@ html, body {height:100%; overflow:hidden; text-rendering:optimizeLegibility; fon
 	100% {transform: scale(1);}
 }
 
-.topstar {font-size:50px; color:#ffa200; position:absolute; top:50%; left:0; margin:-22px 0 0 -290px; z-index:99; transform:rotate(30deg); animation:enter 3s 9s backwards;}
+.topstar {font-size:50px; color:#ffa200; position:absolute; top:50%; left:0; margin:-22px 0 0 -290px; z-index:99; transform:rotate(30deg); animation:enter 3s 8.6s backwards;}
 
 @keyframes enter
 {0%{transform:rotate(30deg) origin; opacity:0;} 100%{transform:rotate(390deg);}}

@@ -89,15 +89,16 @@
 			$('.play').click(function() {
 				audio.play();
 				animation.css('display','block');
-				$('.header .play, .header .mask').fadeOut(1);
+				$('.header .mask').remove();
+				$('.header .play').css('opacity','0');
 				$('h1').fadeOut(800);
 			});
 		});
 
 		$(window).load(function() {
 			var play = $('.play');
-			play.find('p').fadeIn(800);
-			play.find('span').fadeOut(700);
+			play.find('p').fadeIn(1200);
+			play.find('span').fadeOut(400);
 		});
 	</script>
 
